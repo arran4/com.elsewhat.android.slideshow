@@ -142,7 +142,7 @@ public class FileUtils {
     }
 
 	/*
-	 * public static BitmapDrawable readBitmapFromFile2(File imageFile){
+     * public static BitmapDrawable readBitmapFromFile2(File imageFile){
 	 * BitmapDrawable result = null; Log.d(SlideshowActivity.LOG_PREFIX,
 	 * "Loading image from file " + imageFile.getAbsolutePath() + " "+
 	 * imageFile.getName()); try { final FileChannel channel = in.getChannel();
