@@ -4,14 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
-    <artifactId>com.elsewhat.android.slideshow</artifactId>
+    <groupId>com.elsewhat.android.slideshow</groupId>
+    <artifactId>slideshow</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>4.0.1.2</version>
+            <version>4.2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
         </dependency>
     </dependencies>
 

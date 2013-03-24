@@ -20,12 +20,16 @@ public class SlideshowPhotoCached extends SlideshowPhoto {
 	public SlideshowPhotoCached(Context context,File file){
 		super("","",null,null,"dummy url");
 		this.context=context;
-		fileName=file.getName();
+		fileName=file.getAbsolutePath();
 	}
 
 	@Override
 	public String getFileName() {
 		return fileName;
 	}
-	
+
+    @Override
+    public boolean isCacheExisting(File folder){
+        return true;
+    }
 }

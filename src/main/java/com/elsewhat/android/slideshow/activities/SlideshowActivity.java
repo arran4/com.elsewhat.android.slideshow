@@ -5,14 +5,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -145,9 +138,10 @@ public class SlideshowActivity extends Activity implements FileDownloaderListene
 	        //Add some hardcoded photos that will be displayed untill we have download the others
 	        ArrayList<SlideshowPhoto> cachedDrawables = new ArrayList<SlideshowPhoto>(10);
 	        //FYI the url is only used during share photo
-	        cachedDrawables.add(new SlideshowPhotoDrawable(this,"Father", "Graffiti art captured in Bergen, Norway. This additional text is used to test how long texts are broken down and displayed in intervals of some seconds apart. We need it to be just a bit longer in order to split it in 3 parts",R.drawable.photo_father,"http://dl.dropbox.com/u/4379928/Slideshow/father.JPG"));
-	        cachedDrawables.add(new SlideshowPhotoDrawable(this,"Handstand","The lightning was just perfect this day, so why not use it for something productively. This photo was taken at Bore beach.",R.drawable.photo_handstand,"http://dl.dropbox.com/u/4379928/Slideshow/handstand.jpg"));
-	        cachedDrawables.add(new SlideshowPhotoDrawable(this,"Lexus", "A showcase photo of the Lexus IS series. This additional text is used to test how long texts are broken down and displayed in intervals and so there so",R.drawable.photo_lexus,"http://dl.dropbox.com/u/4379928/Slideshow/lexus_is%2Cjpg.jpg"));
+            // Disabled due to using local cache.
+//	        cachedDrawables.add(new SlideshowPhotoDrawable(this,"Father", "Graffiti art captured in Bergen, Norway. This additional text is used to test how long texts are broken down and displayed in intervals of some seconds apart. We need it to be just a bit longer in order to split it in 3 parts",R.drawable.photo_father,"http://dl.dropbox.com/u/4379928/Slideshow/father.JPG"));
+//	        cachedDrawables.add(new SlideshowPhotoDrawable(this,"Handstand","The lightning was just perfect this day, so why not use it for something productively. This photo was taken at Bore beach.",R.drawable.photo_handstand,"http://dl.dropbox.com/u/4379928/Slideshow/handstand.jpg"));
+//	        cachedDrawables.add(new SlideshowPhotoDrawable(this,"Lexus", "A showcase photo of the Lexus IS series. This additional text is used to test how long texts are broken down and displayed in intervals and so there so",R.drawable.photo_lexus,"http://dl.dropbox.com/u/4379928/Slideshow/lexus_is%2Cjpg.jpg"));
 	        
 	        //lets randomize the three hardcoded photos
 			long seed = System.nanoTime();
@@ -692,6 +686,10 @@ public class SlideshowActivity extends Activity implements FileDownloaderListene
 	    	        public void run() {	    	        	
 	    	        	activity.runOnUiThread(new Runnable() {
 	                        public void run() {
+                                if (imageAdapter.getCount() == 0)
+                                    return;
+                                if (gallery.getSelectedItemPosition() >= imageAdapter.getCount())
+                                    gallery.setSelection(0);
 	                        	SlideshowPhoto currentSlideshowPhoto = (SlideshowPhoto)imageAdapter.getItem(gallery.getSelectedItemPosition());
 	                        	
 	                        	View currentRootView = gallery.getSelectedView();
@@ -1189,7 +1187,7 @@ public class SlideshowActivity extends Activity implements FileDownloaderListene
 	    			//TODO-FORK Update flickr public photo set id
 //	    			String flickrPhotosetID = "72157628899979341";
 //	    			slideshowPhotos = new FlickrPublicSetBackend(flickrPhotosetID).getSlideshowPhotos(getBaseContext());
-	    			slideshowPhotos = new AllPhotoFiles("/sdcard1/DCIM").getSlideshowPhotos(getBaseContext());
+	    			slideshowPhotos = new AllPhotoFiles(Arrays.asList("/mnt/sdcard/DCIM", "/sdcard1/DCIM")).getSlideshowPhotos(getBaseContext());
 
 					//slideshowPhotos = new OPMLBackend().getSlideshowPhotos(getBaseContext());
 				} catch (Throwable e) {
