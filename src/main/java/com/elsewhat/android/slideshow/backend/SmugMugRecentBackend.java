@@ -7,34 +7,34 @@ import com.elsewhat.android.slideshow.api.SlideshowPhoto;
 import android.content.Context;
 
 
-
 /**
  * NOT FUNCTIONAL
- * 
+ * <p/>
  * A start for a backend bacsed on smug mug
- * 
- * @author dagfinn.parnas
  *
+ * @author dagfinn.parnas
  */
 public class SmugMugRecentBackend {
-	String smugMugUser;
-	public SmugMugRecentBackend(String smugMugUser){
-		this.smugMugUser=smugMugUser;
-	}
-	/**
-	 * Method for retrieving photos from Smug mug api
-	 * NOT IN USE
-	 * 
-	 * @param context
-	 * @param nickname
-	 * @return
-	 */
-	public List<SlideshowPhoto> getSlideshowPhotos(Context context) throws Throwable {
-		//String feedURL = "http://api.smugmug.com/hack/feed.mg?Type=nicknameRecent&Data="
-		//		+ smugMugUser + "&format=atom03&Size=X2Large";
+    String smugMugUser;
+
+    public SmugMugRecentBackend(String smugMugUser) {
+        this.smugMugUser = smugMugUser;
+    }
+
+    /**
+     * Method for retrieving photos from Smug mug api
+     * NOT IN USE
+     *
+     * @param context
+     * @param nickname
+     * @return
+     */
+    public List<SlideshowPhoto> getSlideshowPhotos(Context context) throws Throwable {
+        //String feedURL = "http://api.smugmug.com/hack/feed.mg?Type=nicknameRecent&Data="
+        //		+ smugMugUser + "&format=atom03&Size=X2Large";
 
 		/* TODO: Implement
-		try {
+        try {
 			String feedResponse = Util.getResponseFromUrl(context, feedURL);
 			Pattern regexPattern = Pattern.compile("<id>(.*?)</id>");
 			Matcher regexMatcher = regexPattern.matcher(feedResponse);
@@ -64,10 +64,10 @@ public class SmugMugRecentBackend {
 			e.printStackTrace();
 			return null;
 		}*/
-		return null;
-		
-		
-	}
-	
-	
+        return null;
+
+
+    }
+
+
 }
