@@ -106,7 +106,7 @@ public class SlideshowPhoto implements DownloadableObject {
     }
 
 	/*public Drawable getLargePhotoDrawable(File folder){
-		long startTime = System.currentTimeMillis(); 
+        long startTime = System.currentTimeMillis();
 		//Drawable retDrawable=  FileUtils.readBitmapFromFile(new File(folder,getFileName()));
 		Drawable retDrawable=  FileUtils.readPurgableBitmapFromFile(new File(folder,getFileName()));
 		long endTime = System.currentTimeMillis();

@@ -91,7 +91,7 @@ public class SlideshowPreferences extends PreferenceActivity implements
         PreferenceCategory slideshowCat = new PreferenceCategory(this);
 
 		/* No need for this since this is the premium version
-		ReadOnlyPreference premiumPreference = new ReadOnlyPreference(this);
+        ReadOnlyPreference premiumPreference = new ReadOnlyPreference(this);
 		premiumPreference.setPersistent(false);
 		premiumPreference.setTitle(R.string.pref_premium_title);
 		premiumPreference.setSummary(R.string.pref_premium_summary);

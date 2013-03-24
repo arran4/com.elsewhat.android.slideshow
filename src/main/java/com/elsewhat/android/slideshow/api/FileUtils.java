@@ -21,7 +21,7 @@ public class FileUtils {
         // imageFile.getAbsolutePath() + " "+ imageFile.getName());
         result = new BitmapDrawable(imageFile.getAbsolutePath());
         /*
-		 * try { //FileInputStream fileStream= new FileInputStream(imageFile);
+         * try { //FileInputStream fileStream= new FileInputStream(imageFile);
 		 * 
 		 * //fileStream.close(); }catch (IOException e) {
 		 * Log.w(SlideshowActivity.LOG_PREFIX,

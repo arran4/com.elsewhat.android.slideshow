@@ -360,7 +360,7 @@ public class CustomGallery extends Gallery implements AnimationListener {
             Log.i("CustomGallery", "Failed in calling recycleAllViews");
 
 			/*
-			//let us call onLayout slightly in the future
+            //let us call onLayout slightly in the future
 			final boolean oldChanged=changed;
 			final int oldL=l;
 			final int oldT=t;
